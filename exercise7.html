@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise #7: Simple playlist</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+}
+
+ul#playlist {
+    border: 1px solid #a9a9a9;
+    border-radius: 5px;
+    margin-top: 10px;
+    padding: 0px;
+    list-style-type: none;
+}
+
+ul#playlist li {
+    border-bottom: 1px solid #a9a9a9;
+    padding: 10px;
+    background-image: linear-gradient(#f9f9f9, #e3e3e3);
+}
+
+ul#playlist li:last-child {
+    border-bottom: none;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+ul#playlist li:first-child {
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+    </style>
+    <script>
+         function handleButtonClick() {
+        
+            var songName = document.getElementById("songTextInput").value;
+
+            if (songName == "") {
+                alert("Please enter a song");
+            }
+            else {
+                var li = document.createElement("li");
+                li.innerHTML = songName;
+                var ul = document.getElementById("playlist");
+                ul.appendChild(li);
+            }
+        }
+
+        window.onload = function () {
+            document.getElementById("addButton").onclick = handleButtonClick;
+
+        }
+    </script>
+</head>
+<body>
+
+<form>
+    <input type="text" id="songTextInput" size="40" placeholder="Song name">
+    <input type="button" id="addButton" value="Add Song">
+</form>
+
+<ul id="playlist">
+</ul>
+
+</body>
+</html>
+
